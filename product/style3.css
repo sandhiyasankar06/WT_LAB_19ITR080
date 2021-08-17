@@ -1,0 +1,30 @@
+
+html{
+height:100%;
+}
+body{
+background-image:linear-gradient(#ffffff,rgb(255,122,89));
+}
+h3 {
+    font-size: 30px;
+    margin: 35px 0px 25px;
+    font-weight: 800;
+    color: #3d3d3d;
+    text-transform: uppercase;
+}
+  .contact-right-info {
+    text-align: center;
+  }
+}
+
+
+  .contact-right-info {
+    text-align: left;
+  }
+  .map-overlay {
+    left: 0px;
+  }
+}
+
+
+
