@@ -1,0 +1,184 @@
+<html>
+<script type = "text/javascript">
+
+//function to set the focus on GPA form 
+function setFocus() { 
+document.GPA.focus(); 
+return; 
+}
+
+
+//functio to round 2 decimal points 
+function round(n){return(.01* Math.round(100*n));}
+
+
+
+//function to calculate gpa 
+function calculate(fr) 
+{ 
+
+
+
+
+
+//checking if all credit hours equal to zero 
+if (fr.CH1.selectedIndex=="0") 
+{alert ("Please specify your credit hours") } 
+
+
+
+else 
+
+//calculating 
+var resultgpa; 
+fr.resultgpa.value=round((eval(fr.CH1.selectedIndex)*parseFloat(fr.grade1.value))
+/(eval(fr.CH1.selectedIndex)))
+
+var resultcgpa; 
+fr.resultcgpa.value 
+=round((eval(fr.CH1.selectedIndex)*parseFloat(fr.grade1.value)+ 
+parseFloat(fr.cgpa.value)*parseFloat(fr.TCH.value)) 
+/(eval(fr.CH1.selectedIndex)+ 
+parseFloat(fr.TCH.value)))
+
+
+
+}
+
+
+</script>
+<form action="none" name="GPA">
+<table  width="700" border="3"  align="center" valign="top" > 
+<!--creating form to send data to function--> 
+
+
+    <tr><td><p align="center"style="font-size:16pt"><b>Select</b></p></td>
+    <td><p align="center"style="font-size:16pt"><b>Courses</b></p></td>
+    <td><p align="center"style="font-size:16pt"><b>Credit</b></p></td>
+    <td><p align="center"style="font-size:16pt"><b>Expected/Grade</b></p></td>
+    <td><p align="center"style="font-size:16pt"><b>Repeted Course</b></p></td>
+    <td><p align="center"style="font-size:16pt"><b>Previous Grade</b></p></td></tr>
+
+<tr> 
+<td>1. <input type="checkbox" text name="sn1"value="smoker"/></td>
+<td><select name="c1">
+<option value="unknown">Select</option>
+<option>ENG 21</option>
+<option>ECO 10</option>
+<option>MAT 28</option>
+<option>PHY 10</option>
+<option>CYC 38</option>
+<option>MEC 10</option>
+<option>CST 11</option>
+<option>ENG 10</option>
+<option>MAT 22</option>
+<option>PHY 20</option>
+<option>CHM 11</option>
+<option>CST 22</option>
+<option>ITC 20</option>
+<option>ITC 22</option>
+<option>MAT 20</option>
+<option>MAT 25</option>
+<option>XXX XXX</option>
+<option>ITC 22</option>
+<option>ITC 21</option>
+<option>ITC 23</option>
+<option>MAT 21</option>
+<option>CST 39</option>
+<option>CST 30</option>
+<option>CST 38</option>
+<option>CST 37</option>
+<option>CST 36</option>
+<option>CST 35</option>
+<option>CST 33</option>
+<option>CST 34</option>
+<option>CST 31</option>
+<option>CST 32</option>
+<option>CST 41</option>
+</select></td>
+<td align = "center"> 
+<select name= "CH1"> 
+<option value = "0" SELECTED>Select 
+<option value = "1">1 
+<option value = "2">2 
+<option value = "3">3 
+<option value = "4">4
+
+</select></td>
+
+<td align = "center" width = "70"> 
+<select name= "grade1"> 
+<option value = "5" SELECTED>Select 
+<option value = "4">A 
+<option value = "3.70">A- 
+<option value = "3.30">B+ 
+<option value = "3">B 
+<option value = "2.70">B- 
+<option value = "2.30">C+ 
+<option value = "2">C 
+<option value = "1.70">C- 
+<option value = "1.30">D+ 
+<option value = "1">D
+<option value = "0.7">D-  
+<option value = "0">F
+</select></td>
+
+    <td> <center>
+         <input type="radio" name="1">Yes
+         <input type="radio" name="1">No
+    </center></td>
+
+<td align = "center"> 
+<select name= "g1"> 
+<option value = "5" SELECTED>Select 
+<option value = "4">A 
+<option value = "3.70">A- 
+<option value = "3.30">B+ 
+<option value = "3">B 
+<option value = "2.70">B- 
+<option value = "2.30">C+ 
+<option value = "2">C 
+<option value = "1.70">C- 
+<option value = "1.30">D+ 
+<option value = "1">D
+<option value = "0.7">D-  
+<option value = "0">F
+
+</select></td>
+</tr>
+</table>
+<table width="400" border="3" align="center" valign="top"> 
+
+
+<tr> 
+<td><p align="center"style="font-size:16pt"><b> Your Current CGPA:</b></p> </td><td align="right"><input type = text name="cgpa"></td></tr>
+
+<tr><td><p align="center"style="font-size:16pt"><b>Your Credit Hours Taken Is:</b></p> </td><td align="right"><input type = text name="TCH"></td></tr>
+
+</table>
+
+<table width="400" border="3" align="center" valign="top"> 
+
+
+
+
+
+<!--sending information to calculate() function-->
+
+<!--getting back result from function--> 
+<tr><td><p align="center"style="font-size:16pt"><b>Your GPA Will Be:</b></p></td> 
+<td align="right"><input type = text name="resultgpa"></td></tr>
+
+<!--getting back result from function--> 
+<tr><td><p align="center"style="font-size:16pt"><b>Your CPGA Will Be:</b></p></td> 
+<td align="right"><input type = text name="resultcgpa"></td></tr>
+
+<tr><td><input type = "button" value = "Calculate!" onclick = "calculate(this.form)" name = "bottun"></td>
+
+<!--reset button--> 
+<td align="right"><input type="reset" name="reset" value="Clear">
+
+</td></tr> 
+</table>
+</form>
+</html>
